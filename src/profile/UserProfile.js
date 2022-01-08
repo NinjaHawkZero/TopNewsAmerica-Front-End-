@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../auth/UserContext";
 import TopNewsApi from "../api/Newsapi";
 import UserStoryCardList from "./UserStoryCardList";
@@ -40,4 +40,4 @@ function UserProfile() {
       )
 }
 
-export default UserProfile;
+export default UserProfile; 

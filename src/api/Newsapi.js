@@ -41,7 +41,15 @@ class TopNewsApi {
     static async getCurrentUser(username) {
         let res = await this.request(`/${username}`);
 
-        return res.user
+        return res.user;
+    }
+
+    //Update User Data
+
+    static async updateProfile(username, data) {
+        let res = await this.request(`/${username}`, data, "patch");
+
+        return res.user;
     }
 
     //Get current stories
@@ -49,7 +57,7 @@ class TopNewsApi {
     static async getStories() {
         let res = await this.request(`/stories`);
 
-        return res.stories
+        return res.stories;
     }
 
     //Login user and get token
@@ -84,6 +92,8 @@ class TopNewsApi {
 
         return res.stories;
     }
+
+
 
 
     //Delete Story

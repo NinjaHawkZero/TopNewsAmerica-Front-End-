@@ -22,6 +22,13 @@ function Navigation({logout}) {
                   Log out {currentUser.username}
                 </Link>
               </li>
+              <li className="nav-item mr-4">
+                <NavLink className="nav-link" to="/userDataForm">
+                  Change User Data
+                </NavLink>
+              </li>
+
+
             </ul>
         );
       }

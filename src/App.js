@@ -47,7 +47,7 @@ function App() {
       return {success: true};
     } catch (err) {
       console.error("Registration Failed", err);
-      return {success: false, errors};
+      return {success: false, err};
     }
   }
 

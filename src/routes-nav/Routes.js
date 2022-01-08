@@ -5,6 +5,7 @@ import LoginForm from "../auth/LoginForm";
 import RegisterForm from "../auth/SignupForm";
 import UserProfile from "../profile/UserProfile";
 import StoryList from "../storys/StoryList";
+import UserDataForm from "../profile/UserDataForm";
 import PrivateRoute from "./PrivateRoute";
 
 
@@ -30,12 +31,15 @@ function SiteRoutes({login, register}) {
            element= {<RegisterForm register={register} />}
           />
 
-          <PrivateRoute exact path="/stories"
+          <Route exact path="/userDataForm"
+          element={<UserDataForm />}/>
+
+          <Route exact path="/stories"
           element={<StoryList />}  
           />
 
 
-          <PrivateRoute path="/userProfile"
+          <Route path="/userProfile"
            element={<UserProfile />} 
           />
 
