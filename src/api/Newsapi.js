@@ -39,7 +39,7 @@ class TopNewsApi {
     //Get current user
 
     static async getCurrentUser(username) {
-        let res = await this.request(`/${username}`);
+        let res = await this.request(`${username}`);
 
         return res.user;
     }
@@ -47,7 +47,7 @@ class TopNewsApi {
     //Update User Data
 
     static async updateProfile(username, data) {
-        let res = await this.request(`/${username}`, data, "patch");
+        let res = await this.request(`${username}`, data, "patch");
 
         return res.user;
     }
@@ -55,7 +55,7 @@ class TopNewsApi {
     //Get current stories
 
     static async getStories() {
-        let res = await this.request(`/stories`);
+        let res = await this.request(`stories`);
 
         return res.stories;
     }
@@ -63,7 +63,7 @@ class TopNewsApi {
     //Login user and get token
 
     static async login(data) {
-        let res = await this.request(`/login`, data, "post");
+        let res = await this.request(`login`, data, "post");
 
         return res.token;
     }
@@ -71,7 +71,7 @@ class TopNewsApi {
 
     //Register User
     static async register(data) {
-        let res = await this.request(`/register`, data, "post");
+        let res = await this.request(`register`, data, "post");
 
         return res.token;
     }
@@ -79,7 +79,7 @@ class TopNewsApi {
 
     //Save Story
     static async saveStory(data, username) {
-        let res = await this.request(`/${username}/saveStory`, data, "post");
+        let res = await this.request(`${username}/saveStory`, data, "post");
 
         return res.savedStory;
     }
@@ -88,7 +88,7 @@ class TopNewsApi {
     //Get Stories
 
     static async getUserStories(username) {
-        let res = await this.request(`/${username}/userstories`);
+        let res = await this.request(`${username}/userstories`);
 
         return res.stories;
     }
@@ -98,7 +98,7 @@ class TopNewsApi {
 
     //Delete Story
     static async deleteStory(data, username) {
-        let res = await this.request(`/${username}/deleteStory`, data, "post");
+        let res = await this.request(`${username}/deleteStory`, data, "post");
 
         return res.deleted;
     }

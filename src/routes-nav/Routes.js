@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import LoginForm from "../auth/LoginForm";
 import RegisterForm from "../auth/SignupForm";
@@ -17,34 +17,40 @@ function SiteRoutes({login, register}) {
 
     return (
         <div className="pt-5">
-        <Routes>
-
-          <Route exact path="/"
-           element={<Homepage />} 
-          />
-
-          <Route exact path="/login"
-           element={<LoginForm login={login} />} 
-          />
-
-          <Route exact path="/register"
-           element= {<RegisterForm register={register} />}
-          />
-
-          <Route exact path="/userDataForm"
-          element={<UserDataForm />}/>
-
-          <Route exact path="/stories"
-          element={<StoryList />}  
-          />
+        <Switch>
 
 
-          <Route path="/userProfile"
-           element={<UserProfile />} 
-          />
+        <Route exact path="/">
+          <Homepage />
+        </Route>
 
-          <Navigate to="/" />
-        </Routes>
+        <Route exact path="/login">
+          <LoginForm login={login} />
+        </Route>
+
+          <Route exact path="/register">
+            <RegisterForm register={register} />
+          </Route>
+         
+
+         <PrivateRoute path="/userDataForm">
+           <UserDataForm />
+         </PrivateRoute>
+
+
+         <PrivateRoute path="/stories">
+           <StoryList />
+         </PrivateRoute>
+
+
+          <PrivateRoute path="/userProfile">
+            <UserProfile />
+          </PrivateRoute>
+
+          <Redirect to="/" />
+      
+          
+        </Switch>
       </div>
 
     );

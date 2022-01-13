@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Navigate } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 
 //Checks if user is logged in, if not redirects
@@ -11,7 +11,7 @@ function PrivateRoute({ exact, path, children }) {
   
   
     if (!currentUser) {
-      return <Navigate to="/login" />;
+      return <Redirect to="/login" />;
     }
   
     return (

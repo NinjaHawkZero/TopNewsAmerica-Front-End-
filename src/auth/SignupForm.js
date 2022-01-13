@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Alert from "../common/Alert";
 
 //Render signup form
 
 function RegisterForm({register}) {
-    const navigate = useNavigate();
+    const history = useHistory();
     const [formData, setFormData] = useState({ username: "", password: ""});
     const [formErrors, setFormErrors] = useState([]);
 
@@ -16,7 +16,7 @@ function RegisterForm({register}) {
         evt.preventDefault();
         let result = await register(formData);
         if(result.success) {
-            navigate("/stories");
+          history.push("/stories");
         } else {
             setFormErrors(result.errors);
         }
