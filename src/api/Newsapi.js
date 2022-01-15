@@ -57,7 +57,7 @@ class TopNewsApi {
     static async getStories() {
         let res = await this.request(`stories`);
 
-        return res.stories;
+        return res.newStories;
     }
 
     //Login user and get token

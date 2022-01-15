@@ -4,7 +4,6 @@ import Homepage from "../homepage/Homepage";
 import LoginForm from "../auth/LoginForm";
 import RegisterForm from "../auth/SignupForm";
 import UserProfile from "../profile/UserProfile";
-import StoryList from "../storys/StoryList";
 import UserDataForm from "../profile/UserDataForm";
 import PrivateRoute from "./PrivateRoute";
 
@@ -37,10 +36,6 @@ function SiteRoutes({login, register}) {
            <UserDataForm />
          </PrivateRoute>
 
-
-         <PrivateRoute path="/stories">
-           <StoryList />
-         </PrivateRoute>
 
 
           <PrivateRoute path="/userProfile">

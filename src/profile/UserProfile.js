@@ -7,7 +7,7 @@ import UserStoryCardList from "./UserStoryCardList";
 
 function UserProfile() {
     const {currentUser, removeStory} = useContext(UserContext);
-    const [stories, setStories] = useState(null);
+    const [stories, setStories] = useState([]);
 
 
     useEffect(() => {
@@ -31,10 +31,9 @@ function UserProfile() {
       return (
         <div className="userStoryList col-md-8 offset-md-2">
         
-        {stories.length
-            ? <UserStoryCardList stories={stories} handleRemove={handleRemove} />
-            : <p className="lead">Sorry, no results were found!</p>
-        }
+        
+
+        {stories && stories.length > 0 ? (<UserStoryCardList stories={stories} handleRemove={handleRemove} />) : (<p className="lead">Sorry, no results were found!</p>)}
       </div>
 
       )
