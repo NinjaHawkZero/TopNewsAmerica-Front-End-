@@ -86,7 +86,7 @@ function App() {
   //Remove Story
   async function removeStory(id) {
     try {
-      let res = await TopNewsApi.removeStory(id);
+      let res = await TopNewsApi.deleteStory(id, currentUser.username);
       return {success: true}
     } catch(err) {
       console.error("Could not remove story", err);

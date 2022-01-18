@@ -14,7 +14,7 @@ function Navigation({logout}) {
             
               <li className="nav-item mr-4">
                 <NavLink className="nav-link" to="/userProfile">
-                  User Stories
+                  {currentUser.username} User Stories
                 </NavLink>
               </li>
               <li className="nav-item">

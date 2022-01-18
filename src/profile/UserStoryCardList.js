@@ -4,20 +4,22 @@ import UserStoryCard from "./UserStoryCard"
 //Renders list of story card
 
 
-function UserStoryCardList({stories, handleRemove}) {
+function UserStoryCardList({stories, setStories}) {
 
     return (
         <div className="userStoryCardList">
             {stories.map(story => (
                 <UserStoryCard
                 key={story.id}
-                saved_by={story.saved_by}
+                id={story.id}
+                savedBy={story.savedBy}
                 author={story.author}
                 title={story.title}
                 description={story.description}
-                published_at={story.published_at}
+                publishedAt={story.publishedAt}
                 urlToImage={story.urlToImage}
-                handleRemove={handleRemove}
+                stories={stories}
+                setStories={setStories}
 
                 />
             ))}

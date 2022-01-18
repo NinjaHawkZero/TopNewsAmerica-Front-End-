@@ -14,7 +14,8 @@ function StoryCardList({stories}) {
                 author={story.author}
                 title={story.title}
                 description={story.description}
-                published_at={story.published_at}
+                url={story.url}
+                publishedAt={story.publishedAt}
                 urlToImage={story.urlToImage}
 
                 />

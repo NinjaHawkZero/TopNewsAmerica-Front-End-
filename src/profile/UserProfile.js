@@ -6,7 +6,7 @@ import UserStoryCardList from "./UserStoryCardList";
 //Render Profile Page with list of User stories
 
 function UserProfile() {
-    const {currentUser, removeStory} = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
     const [stories, setStories] = useState([]);
 
 
@@ -19,12 +19,7 @@ function UserProfile() {
         getUserStories();
       }, []);
 
-    async function handleRemove(storyID){
-         removeStory(storyID);
-         setStories(stories.filter(story => story.id !== storyID))
-
-        
-    }
+  
       
 
 
@@ -33,7 +28,7 @@ function UserProfile() {
         
         
 
-        {stories && stories.length > 0 ? (<UserStoryCardList stories={stories} handleRemove={handleRemove} />) : (<p className="lead">Sorry, no results were found!</p>)}
+        {stories && stories.length > 0 ? (<UserStoryCardList stories={stories} setStories={setStories} />) : (<p className="lead">Sorry, no results were found!</p>)}
       </div>
 
       )

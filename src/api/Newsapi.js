@@ -2,7 +2,7 @@
 const axios = require("axios");
 
 const URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
-
+const API_KEY = `923cdfb34c684486ae9912d7ada90b4b`
 
 
 
@@ -54,11 +54,22 @@ class TopNewsApi {
 
     //Get current stories
 
-    static async getStories() {
-        let res = await this.request(`stories`);
 
-        return res.newStories;
-    }
+   
+  
+     static async  getStories() {
+            let result = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
+        
+            let stories = result.data.articles;
+            let newStories = stories.map((story) => {delete story.source && delete story.content; return story})
+            console.log(newStories)
+            return newStories
+        }
+        
+        
+
+        
+
 
     //Login user and get token
 
@@ -98,7 +109,7 @@ class TopNewsApi {
 
     //Delete Story
     static async deleteStory(data, username) {
-        let res = await this.request(`${username}/deleteStory`, data, "post");
+        let res = await this.request(`${username}/deleteStory`, data, "delete");
 
         return res.deleted;
     }
@@ -108,9 +119,9 @@ class TopNewsApi {
 
 
 
-  
+  TopNewsApi.getStories();
 
 
 
 
-module.exports = TopNewsApi;
+export default  TopNewsApi;

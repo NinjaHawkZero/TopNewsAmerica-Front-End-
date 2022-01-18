@@ -28,38 +28,33 @@ function Homepage() {
             <p className="lead">All of America's top stories!</p>
            
            
-           
-        
-        { currentUser && stories.length > 0 ? (
+           <div>
+
+           { currentUser && stories.length > 0 ? (
          <div className="StoryList col-md-8 offset-md-2">
         <StoryCardList stories={stories} />
         </div>
         
-        ) : (<p className="lead">Sorry, no results were found!</p>)
+        ) : currentUser && stories.length === 0 ? (<p className="lead">Sorry, no results were found!</p>) : 
+        <p>
+        <Link className="btn btn-primary font-weight-bold mr-3"
+              to="/login">
+          Log in
+        </Link>
+        <Link className="btn btn-primary font-weight-bold"
+              to="/register">
+          Register
+        </Link>
+      </p>
+  
+
         }
+           </div>
+        
+      
      
            
-            {currentUser
-                ? (<h2>
-                  Welcome Back, {currentUser.username}!
-                </h2>
-
-                
-
-                )
-
-                : (
-                    <p>
-                      <Link className="btn btn-primary font-weight-bold mr-3"
-                            to="/login">
-                        Log in
-                      </Link>
-                      <Link className="btn btn-primary font-weight-bold"
-                            to="/register">
-                        Register
-                      </Link>
-                    </p>
-                )}
+            
           </div>
         </div>
     );

@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import UserContext from "../auth/UserContext";
 import "./StoryCard.css";
 
 
@@ -6,14 +7,23 @@ import "./StoryCard.css";
 //Shows information about a story
 
 
-function UserStoryCard({id, saved_by, author, title, description, published_at, url, urlToImage, handleRemove}) {
-    let story = {id, saved_by, author, title, description, published_at, url, urlToImage};
+function UserStoryCard({id, savedBy, author, title, description, publishedAt, url, urlToImage, stories, setStories }) {
+    const {removeStory} = useContext(UserContext)
+    const objId = {id}
     
 
 
 
-    //Saves Story for User
+    //Removes story for user
+
     
+    async function handleRemove(){
+      removeStory(objId);
+      setStories(stories.filter(story => story.id !== id))
+
+     
+ }
+
 
     return (
         <div className="StoryCard"> 
@@ -23,12 +33,12 @@ function UserStoryCard({id, saved_by, author, title, description, published_at, 
           {urlToImage && <img src={urlToImage} className="float-right ml-5" />}  </h6>
           <p>{author}</p>
           <div><small>{url}</small></div>
-          <div><small>{published_at}</small></div>
+          <div><small>{publishedAt}</small></div>
            <div><p>{description}</p></div>
           
           <button
               className="btn btn-danger font-weight-bold text-uppercase float-right"
-              onClick={() => (handleRemove(story.id))}
+              onClick={handleRemove}
               
           >
             { "Remove Story"}
