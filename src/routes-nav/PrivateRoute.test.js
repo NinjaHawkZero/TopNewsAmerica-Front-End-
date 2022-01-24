@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { MemoryRouter } from "react-router";
+import { MemoryRouter } from "react-router-dom";
 import { UserProvider } from "../testUtils";
 import PrivateRoute from "./PrivateRoute";
 

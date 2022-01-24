@@ -6,8 +6,14 @@ import StoryCard from "./StoryCard";
 
 function StoryCardList({stories}) {
 
+    
     return (
-        <div className="StoryCardList">
+        <div class="col d-flex justify-content-center">
+
+<div className="StoryCardList">
+             <h1 className="font-weight-bold">Top News America</h1>
+            <p className="lead">All of America's top stories!</p>
+
             {stories.map(story => (
                 <StoryCard
                 key={story.url}
@@ -22,6 +28,8 @@ function StoryCardList({stories}) {
             ))}
 
         </div>
+        </div>
+       
     )
 
 }

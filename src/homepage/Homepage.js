@@ -23,9 +23,8 @@ function Homepage() {
    
     return (
         <div className="Homepage">
-          <div className="container text-center">
-            <h1 className="mb-4 font-weight-bold">Top News America</h1>
-            <p className="lead">All of America's top stories!</p>
+          <div className="container">
+            
            
            
            <div>
@@ -36,16 +35,14 @@ function Homepage() {
         </div>
         
         ) : currentUser && stories.length === 0 ? (<p className="lead">Sorry, no results were found!</p>) : 
-        <p>
-        <Link className="btn btn-primary font-weight-bold mr-3"
-              to="/login">
-          Log in
-        </Link>
-        <Link className="btn btn-primary font-weight-bold"
-              to="/register">
-          Register
-        </Link>
-      </p>
+        
+        <div>
+
+            <h1 className="font-weight-bold">Top News America</h1>
+            <p className="lead">All of America's top stories!</p>
+            <p>You need to login or register to see today's top s</p>
+      
+      </div>
   
 
         }
